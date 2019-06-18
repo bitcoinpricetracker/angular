@@ -1,0 +1,22 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Bitcoin Price Tracker</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <section class="bitcoin__header">
+      <ion-icon name="logo-bitcoin" class="bitcoin__logo"></ion-icon>
+    </section>
+    <ng-container *ngIf="loading; else elseBlock">
+      <loading-card></loading-card>
+      <loading-card></loading-card>
+      <loading-card></loading-card>
+    </ng-container>
+    <ng-template #elseBlock>
+      <bitcoin-card
+        [data]="bitcoinData"
+      ></bitcoin-card>
+    </ng-template>
+  </ion-content>
+</ion-app>
